@@ -14,9 +14,6 @@
 //   }
 // };
 
-/**
- * should have been this :)
- */
 export const addItemToCart = (cartItems, cartItemToAdd) => {
   const existingCartItem = cartItems.find(
     cartItem => cartItem.id === cartItemToAdd.id,
@@ -31,4 +28,37 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
   }
 
   return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
+};
+
+// export const removeItemFromCart = (cartItems, cartItemToAdd) => {
+//   let newCartItems = [];
+//   cartItems.forEach(cartItem => {
+//     if (cartItem.id === cartItemToAdd.id) {
+//       if (cartItem.quantity !== 1) {
+//         newCartItems = [
+//           ...newCartItems,
+//           { ...cartItem, quantity: cartItem.quantity - 1 },
+//         ];
+//       }
+//     } else {
+//       newCartItems = [...newCartItems, cartItem];
+//     }
+//   });
+//   return newCartItems;
+// };
+
+export const removeItemFromCart = (cartItems, cartItemToAdd) => {
+  const existingCartItem = cartItems.find(
+    cartItem => cartItem.id === cartItemToAdd.id,
+  );
+
+  if (existingCartItem.quantity === 1) {
+    return cartItems.filter(cartItem => cartItem.id !== existingCartItem.id);
+  }
+
+  return cartItems.map(cartItem =>
+    cartItem.id === cartItemToAdd.id
+      ? { ...cartItem, quantity: cartItem.quantity - 1 }
+      : cartItem,
+  );
 };
