@@ -2,19 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg';
-import './cart-icon.styles.scss';
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
 import { selectCartItemsCount } from '../../redux/cart/cart.selectors';
+import {
+  ShoppingIcon,
+  ItemCountContainer,
+  CartIconContainer,
+} from './cart-icon.styles';
 
 const CartIcon = ({ itemCount, toggleCart }) => {
   return (
-    <div className="cart-icon" onClick={toggleCart}>
-      <ShoppingIcon className="shopping-icon" />
-      <span className="item-count">{itemCount}</span>
-    </div>
+    <CartIconContainer onClick={toggleCart}>
+      <ShoppingIcon />
+      <ItemCountContainer>{itemCount}</ItemCountContainer>
+    </CartIconContainer>
   );
 };
+
 CartIcon.propTypes = {
   itemCount: PropTypes.number.isRequired,
 };
