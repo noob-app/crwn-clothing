@@ -10,8 +10,6 @@ import {
   ImageContainter,
   TextContainer,
   QuantityContainer,
-  ArrowContainer,
-  ValueContainer,
   RemoveButtonContainer,
 } from './checkout-item.styles';
 

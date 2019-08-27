@@ -41,6 +41,7 @@ const getButtonStyles = props => {
 
   return props.inverted ? invertedButtonStyles : buttonStyles;
 };
+
 export const CustomButtonContainer = styled.button`
   min-width: 165px;
   width: auto;
@@ -49,12 +50,12 @@ export const CustomButtonContainer = styled.button`
   line-height: 50px;
   padding: 0 35px 0 35px;
   font-size: 15px;
-
   text-transform: uppercase;
   font-family: 'Open Sans Condensed';
   font-weight: bolder;
   cursor: pointer;
   display: flex;
   justify-content: center;
+
   ${getButtonStyles}
 `;

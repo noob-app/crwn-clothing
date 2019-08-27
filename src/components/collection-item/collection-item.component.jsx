@@ -5,26 +5,26 @@ import { addItem } from '../../redux/cart/cart.actions';
 
 import {
   CollectionItemContainer,
-  ImageContainer,
-  CustomButtonContainer,
   CollectionFooterContainer,
+  AddButton,
+  BackgroundImage,
+  NameContainer,
   PriceContainer,
-} from './collection.styles';
-import { NameContainer } from '../checkout-item/checkout-item.styles';
+} from './collection-item.styles';
 
 const CollectionItem = ({ item, addItem }) => {
   const { name, price, imageUrl } = item;
 
   return (
     <CollectionItemContainer>
-      <ImageContainer imageUrl={imageUrl} />
+      <BackgroundImage imageUrl={imageUrl} />
       <CollectionFooterContainer>
         <NameContainer>{name}</NameContainer>
         <PriceContainer>{price}</PriceContainer>
       </CollectionFooterContainer>
-      <CustomButtonContainer onClick={() => addItem(item)} inverted>
+      <AddButton onClick={() => addItem(item)} inverted>
         Add to cart
-      </CustomButtonContainer>
+      </AddButton>
     </CollectionItemContainer>
   );
 };
